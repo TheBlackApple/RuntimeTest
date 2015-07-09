@@ -7,6 +7,7 @@
 //
 
 #import "MyClass.h"
+//#import "MySubClass.h"
 @interface MyClass()
 {
     NSInteger _instance1;

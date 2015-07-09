@@ -90,7 +90,31 @@ int main(int argc, const char * argv[]) {
         }
         NSLog(@"MyClass is %@ respond to protocol %s",class_conformsToProtocol(cls, protocol)?@"":@"not",protocol_getName(protocol));
         NSLog(@"================================");
-
+        
+        
+        /*
+        Method submethod1;
+        IMP imp_submethod1;
+        //动态创建类和对象
+        Class cls1 = objc_allocateClassPair(MyClass.class, "MySubClass", 0);
+        class_addMethod(cls1, @selector(submethod1), (IMP)imp_submethod1, "v@:");
+        class_replaceMethod(cls1, @selector(method1), (IMP)imp_submethod1, "v@:");
+        class_addIvar(cls1, "_ivar1", sizeof(NSString *), log(sizeof(NSString *)), "i");
+        
+        objc_property_attribute_t type = {"T","@\"NSString\""};
+        objc_property_attribute_t ownership = {"C",""};
+        objc_property_attribute_t backingivar = {"V","_ivar1"};
+        objc_property_attribute_t attrs[] = {type,ownership,backingivar};
+        
+        class_addProperty(cls1,"property2", attrs,3);
+        objc_registerClassPair(cls1);
+        
+        id instance = [[cls1 alloc]init];
+        [instance performSelector:@selector(submethod1)];
+        [instance performSelector:@selector(method1)];
+        */
     }
     return 0;
 }
+
+
