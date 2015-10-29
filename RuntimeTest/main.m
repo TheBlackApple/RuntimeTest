@@ -19,6 +19,7 @@ int main(int argc, const char * argv[]) {
         NSLog(@"================================");
         //父类
         NSLog(@"super class name: %s",class_getName(class_getSuperclass(cls)));
+        class_getName(class_getSuperclass(cls));
         NSLog(@"================================");
         //是否是元类
         NSLog(@"MyClass is %@ a meta-class",(class_isMetaClass(cls)? @"" : @"not"));
